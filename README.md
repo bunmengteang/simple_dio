@@ -1,6 +1,8 @@
 # simple_dio
 
-A new Flutter package project.
+Simple Dio, Simple Request and Simple Response.
+
+Only one class make you response simple data.
 
 ## Getting Started
 
