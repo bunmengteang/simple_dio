@@ -6,41 +6,37 @@ enum HttpMethod { GET, POST, PUT, DELETE }
 class SimpleDioRequest {
   final String simpleUri;
   final HttpMethod simpleMethod;
-  final Map<String, dynamic> simpleBody;
-  final Map<String, dynamic> simpleQuery;
-  final Map<String, dynamic> simpleHeader;
-  Response _simpleResponse;
+  final Map<String, dynamic>? simpleBody;
+  final Map<String, dynamic>? simpleQuery;
+  final Map<String, dynamic>? simpleHeader;
+  Response? _simpleResponse;
 
   SimpleDioRequest(
-      {this.simpleUri,
-      this.simpleMethod,
+      {required this.simpleUri,
+      required this.simpleMethod,
       this.simpleBody,
       this.simpleQuery,
       this.simpleHeader});
 
   // add simple header with value
   void addSimpleHeader(String key, dynamic value) {
-    if (simpleHeader != null) {
-      simpleHeader.addAll({key: value});
-    }
+    simpleHeader!.addAll({key: value});
   }
 
   // add simple headers with map of header
   void addSimpleHeaders(Map<String, dynamic> headers) {
-    if (simpleHeader != null) {
-      simpleHeader.addAll(headers);
-    }
+    simpleHeader!.addAll(headers);
   }
 
   // get simple response data as List
   List<dynamic> getSimpleLists() {
-    final data = _simpleResponse.data;
+    final data = _simpleResponse!.data;
     return data as List<dynamic>;
   }
 
   // get simple response data as Object
   Map<String, dynamic> getSimpleObject() {
-    return _simpleResponse.data;
+    return _simpleResponse!.data;
   }
 
   // do simple request with dio
